@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, TouchableOpacity, Image } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity, Image,Button  } from "react-native";
 
 function randomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -7,18 +7,17 @@ function randomInteger(min, max) {
 
 //1=ham ;2=s ;3=pa
 
-
+var rand_ = 0
 
 const IngameScreen = ({ navigation, route }) => {
     const [count_ai, setcount_ai] = useState(0);
     const [count_player, setcount_player] = useState(0);
     const [count_draw, setcount_draw] = useState(0);
     const [round, setround] = useState(0);
-    const [rand_, setrand_] = useState(0);
+   
     const AI_map = ["Hammer","Scissors","Paper"]
     const Result = (select) => {
-        const rand_ = randomInteger(1, 3);
-        setrand_(rand_)
+        rand_ = randomInteger(1, 3);
         setround(round + 1)
         console.log(select)
         if (select === rand_) {
@@ -86,13 +85,17 @@ const IngameScreen = ({ navigation, route }) => {
       </View>)
         } 
         else {
-          setcount_ai(0)
-          setcount_player(0)
-          setcount_draw(0)
-          setrand_(0)
-          setround(0)
-          navigation.navigate("Result", { data: item.data,pointai:count_ai,pointuse:count_player })
-          return <Text style={myStyles.TextTitle}>lose</Text>;
+          // setcount_ai(0)
+          // setcount_player(0)
+          // setcount_draw(0)
+          // rand_ = 0
+          // setround(0)
+          return(  <Button 
+            title = "Next"
+            onPress={()=> navigation.navigate("Result", { data: item.data,pointai:count_ai,pointuse:count_player })}
+        />)
+        
+    
         } 
       })()}
 
