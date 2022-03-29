@@ -53,7 +53,7 @@ const IngameScreen = ({ navigation, route }) => {
       <Text style={myStyles.TextInput}>Please select!!</Text>
 
       {(() => {
-        if (round<item.round) {
+        if (round<item.round &&(count_ai!==2 && count_player!==2) ) {
           return( <View>
             <View style={{flexDirection:"row"}}> 
         <TouchableOpacity
@@ -85,18 +85,13 @@ const IngameScreen = ({ navigation, route }) => {
       </View>)
         } 
         else {
-          // setcount_ai(0)
-          // setcount_player(0)
-          // setcount_draw(0)
-          // rand_ = 0
-          // setround(0)
           return(  <Button 
             title = "Next"
             onPress={()=> navigation.navigate("Result", { data: item.data,pointai:count_ai,pointuse:count_player })}
         />)
-        
-    
         } 
+
+
       })()}
 
     

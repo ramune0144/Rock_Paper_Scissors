@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -9,20 +8,7 @@ import IngameScreen from './src/Screens/IngameScreen';
 import CompileScreen from './src/Screens/CompileScreen';
 import ResultScreen from './src/Screens/ResultScreen';
 
-// export default function App() {
-//   return (
-//     <ScrollView>
-//       <View style={styles.container}>
-//         <HomeScreen />
-//         {/* <SelectScreen />
-//         <IngameScreen />
-//         <CompileScreen />
-//         <ResultScreen /> */}
-//       </View>
-//     </ScrollView>
 
-//   );
-// }
 const defaultStackNavOption = {
   headerStyle: { backgroundColor: Color.five },
 
