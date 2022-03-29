@@ -24,7 +24,7 @@ import ResultScreen from './src/Screens/ResultScreen';
 //   );
 // }
 const defaultStackNavOption = {
-  headerStyle: { backgroundColor: Color.primaryColor },
+  headerStyle: { backgroundColor: Color.five },
 
 
 
