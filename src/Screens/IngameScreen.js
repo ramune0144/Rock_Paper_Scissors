@@ -85,6 +85,7 @@ const IngameScreen = ({ navigation, route }) => {
         </View>
 
       ):
+      
       ( navigation.navigate("Result", { data: item.data,pointai:count_ai,pointuse:count_player }))}
 
     </View>

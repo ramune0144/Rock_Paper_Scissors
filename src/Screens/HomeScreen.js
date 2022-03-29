@@ -1,7 +1,11 @@
 import React,{useState} from "react";
-import { View, StyleSheet, Text, TextInput, Button } from "react-native";
+import { View, StyleSheet, Text, TextInput, Button,Alert } from "react-native";
 
 import Color from "../Context/Color";
+
+
+
+
 
 const HomeScreen = ({navigation}) => {
 const [text, onChangeText] = useState("");
@@ -11,11 +15,17 @@ const [text, onChangeText] = useState("");
             <Text style={myStyles.TextTitle}>Please enter your name!!</Text>
             <TextInput style={myStyles.TextInput} onChangeText={onChangeText} value ={text} />
             <View style={myStyles.TextButton}>
-                <Button
+                {text===""?<Button
+                    title="Submit your name"
+                    onPress={()=> Alert .alert("eiei")}
+                    color={Color.primary}
+                />
+                :<Button
                     title="Submit your name"
                     onPress={()=>navigation.navigate("Select",{ data: text })}
                     color={Color.primary}
-                />
+                />}
+               
             </View>
                 
         </View>
