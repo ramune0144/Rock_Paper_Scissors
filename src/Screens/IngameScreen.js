@@ -52,41 +52,52 @@ const IngameScreen = ({ navigation, route }) => {
       <Text style={myStyles.TextRound}>Draw:{count_draw} </Text>
       <Text style={myStyles.TextRound}>AI select:{AI_map[rand_-1]} </Text>
       <Text style={myStyles.TextInput}>Please select!!</Text>
-      {round<item.round?(
-          
-           <View>
-              <View style={{flexDirection:"row"}}> 
-          <TouchableOpacity
-       
-          onPress={() =>Result( 1) }
-        >
-          <Image
-            source={require("../Image/Hammer.png")}
-            style={myStyles.ImageStyle}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => Result(2)}
-        >
-          <Image
-            source={require("../Image/Scissors.png")}
-            style={myStyles.ImageStyle}
-          />
-        </TouchableOpacity>
-        </View>
-        <TouchableOpacity
-          onPress={() =>  Result(3)}
-        >
-          <Image
-            source={require("../Image/Paper.png")}
-            style={myStyles.ImageStyle}
-          />
-        </TouchableOpacity>
-        </View>
 
-      ):
-      
-      ( navigation.navigate("Result", { data: item.data,pointai:count_ai,pointuse:count_player }))}
+      {(() => {
+        if (round<item.round) {
+          return( <View>
+            <View style={{flexDirection:"row"}}> 
+        <TouchableOpacity
+     
+        onPress={() =>Result( 1) }
+      >
+        <Image
+          source={require("../Image/Hammer.png")}
+          style={myStyles.ImageStyle}
+        />
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => Result(2)}
+      >
+        <Image
+          source={require("../Image/Scissors.png")}
+          style={myStyles.ImageStyle}
+        />
+      </TouchableOpacity>
+      </View>
+      <TouchableOpacity
+        onPress={() =>  Result(3)}
+      >
+        <Image
+          source={require("../Image/Paper.png")}
+          style={myStyles.ImageStyle}
+        />
+      </TouchableOpacity>
+      </View>)
+        } 
+        else {
+          setcount_ai(0)
+          setcount_player(0)
+          setcount_draw(0)
+          setrand_(0)
+          setround(0)
+          navigation.navigate("Result", { data: item.data,pointai:count_ai,pointuse:count_player })
+          return <Text style={myStyles.TextTitle}>lose</Text>;
+        } 
+      })()}
+
+    
+          
 
     </View>
   );
